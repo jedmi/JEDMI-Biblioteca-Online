@@ -1,0 +1,38 @@
+    
+{% extends 'base.html' %}
+{% block conteudo %}
+    
+    <div class="container-fluid">
+    <div class="row">
+      
+
+        
+          
+      <div class="col-xl-12 col-sm-6 mb-3">  
+        <div class="card text-white bg-info o-hidden h-100 ">      
+          <div class="card-body ">
+            <form class="form-autenticar"  action="/area_interna/obra/pesquisar/resultado" method="POST">
+              {% csrf_token %}
+              <label>Nome da Obra:</label><br/>
+              <input style="width: 700px; height: 50px"  type="text" class="text" name="nome" required/>
+              <br/><br/> 
+              <button class="btn btn-xs btn-warning " type="submit" >Pesquisar</button>   
+           </form>     
+          </div>
+        </div>
+      </div>    
+        
+
+
+
+
+      <div class="col-xl-12 col-sm-6 mb-3">  
+            {%block pesquisa%}
+
+            {%endblock%}
+             
+        
+      </div>
+      
+{% endblock %}
+      

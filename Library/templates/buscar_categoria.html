@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    
+    <div class="container-fluid">
+    <div class="row">
+      
+
+        
+          
+      <div class="col-xl-12 col-sm-6 mb-3">  
+        <div class="card text-white bg-info o-hidden h-100 ">      
+          <div class="card-body ">
+            <form class="form-autenticar"  action="/area_interna/categoria/buscar" method="POST">
+            {% csrf_token %}
+                <select  name="categoria_selecao" value="OK" style="width: 500px; height: 40px">
+                    {% for al in categoria %}
+                    <option value={{al.id}}>{{ al.nome_categoria}}   Codico Unico: {{al.id}}</option>        
+                    {% endfor %} 
+                </select>         
+                <button class="btn btn-xs btn-warning " type="submit" >EDITAR</button>  
+           </form>     
+          </div>
+        </div>
+      </div>    
+        
+
+
+
+
+      <div class="col-xl-12 col-sm-6 mb-3">  
+            {%block categoria%}
+
+            {%endblock%}
+             
+        
+      </div>
+      
+{% endblock %}

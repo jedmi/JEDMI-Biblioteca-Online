@@ -1,0 +1,47 @@
+{% extends 'lista_buscar.html' %}
+{% block listacategoria %}
+
+<div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-12 col-sm-6 mb-3">  
+            <div class="card text-white bg-dark o-hidden h-100 ">
+              
+              <div class="card-body ">
+                    {% for al in obras %}   
+                            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#Relatorio{{al.id}}">
+                            <span class="nav-link-text"><h4>{{al.titulo}}</h4></span>
+                          </a>
+                          <ul class="sidenav-second-level collapse" id="Relatorio{{al.id}}">
+                              <li>
+                                <h6>Edicao da Obra: {{al.edicao}} </h6> 
+                              </li>
+                              <li>
+                                <h6>Numero do Exemplar: {{al.numeroexemplar}}</h6>
+                              </li>             
+                              <li>
+                                <h6>Ano de Publicaoção: {{al.ano}}</h6>
+                              </li> 
+                              <li>
+                               <h6>Observações: {{al.observacao}}</h6>
+                              </li>   
+                              <li>
+                                <h6>status: {{al.status}}</h6>
+                              </li>
+                              <li>
+                                <h6>Nome da Editora: {{al.editora.nome_editora}}</h6>
+                              </li>
+                            </ul>
+                          
+                    {% endfor %} 
+    
+                <div class="card-body-icon col-md-1">
+                    <i class="fa fa-fw fa-list"></i> 
+                </div>
+              
+            </div>
+            </div>
+          </div>
+        </div>
+
+
+{% endblock %}

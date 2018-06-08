@@ -1,0 +1,35 @@
+
+
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<div class="container theme-showcase" role="main">
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         
+          <div class="modal-body">
+              {{msg}}
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="javascript:window.history.back();">FECHAR</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $('#myModal').modal('show');
+});
+</script>
+
+  
+     
+      
+  {% endblock %}

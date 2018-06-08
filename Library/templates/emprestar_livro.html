@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<div class="container-fluid">
+    <div class="row">
+      
+
+        
+          
+      <div class="col-xl-12 col-sm-6 mb-3">  
+        <div class="card text-white bg-secondary o-hidden h-100 ">      
+          <div class="card-body ">
+            <form class="form-autenticar"  action="/area_interna/emprestar/cadastrar" method="POST">
+            {% csrf_token %}
+                <label>Selecione a obra:</label>
+                <select  name="obra_selecao" value="OK" style="width: 500px; height: 50px" required >
+                    {% for al in obra %}
+                    <option value={{al.id}}> {{al.titulo}}</option>        
+                    {% endfor %} 
+                </select>
+                <br/><br/>
+                <label>Selecione o Usuario:</label>
+                <select  name="usuario_selecao" value="OK" style="width: 500px; height: 50px" required >
+                    {% for al in usuario %}
+                    <option value={{al.id}}> {{al.nome_usuario}}</option>        
+                    {% endfor %} 
+                </select>
+                <br/><br/>
+                <label>Dias de Emprestimo:</label>
+                <select  name="dias_selecao" value="OK" style="width: 500px; height: 50px" required >
+                    
+                    <option value=5dias>5 Dias</option>
+                    <option value=7dias>7 Dias</option>
+                    <option value=10dias>10 Dias</option>        
+                    
+                </select>
+                <br/><br/>
+                <label>Data do emprestimo:</label>
+                <input  type="date" class="text" name='data_emprestimo'required/>
+                <br/><br/>      
+                <button class="btn btn-xs btn-warning "  type="submit" >SALVAR</button>  
+           </form>     
+          </div>
+        </div>
+      </div>
+        
+
+
+
+
+      <div class="col-xl-12 col-sm-6 mb-3">  
+
+{% endblock %}

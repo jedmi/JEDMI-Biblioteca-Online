@@ -1,0 +1,217 @@
+
+{% load static from staticfiles%}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>JEDMI Library</title>
+  <!-- Bootstrap core CSS-->
+  <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="{% static "vendor/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="{% static "css/sb-admin.css" %}" rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="/area_interna">JEDMI Library</a>
+
+  
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#OpcoesObras">
+            <span class="nav-link-text">Obras</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="OpcoesObras">
+            <li>
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#OpcoesLivros">
+                  <span class="nav-link-text">Livro</span>
+                </a>
+                  <ul class="sidenav-second-level collapse" id="OpcoesLivros">
+                      <li>
+                        <a href="/aera_interna/obras/livros/criar">Cadastrar</a>
+                      </li>
+                      <li>
+                        <a href="/aera_interna/obras/livros/alterar">Alterar</a>
+                      </li>
+                      <li>
+                        <a href="/aera_interna/obras/livros/excluir">Excluir</a>
+                      </li>
+                  </ul>
+            </li>
+            <li>
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#OpcoesRevista">
+                    <span class="nav-link-text">Revista</span>
+                  </a>
+                    <ul class="sidenav-second-level collapse" id="OpcoesRevista">
+                        <li>
+                          <a href="/aera_interna/obras/revista/criar">Cadastrar</a>
+                        </li>
+                        <li>
+                          <a href="/aera_interna/obras/revista/alterar">Alterar</a>
+                        </li>
+                        <li>
+                          <a href="/aera_interna/obras/revista/excluir">Excluir</a>
+                        </li>
+                    </ul>
+              </li>
+              <li>
+                  <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#OpcoesDic">
+                      <span class="nav-link-text">Dicionário</span>
+                    </a>
+                      <ul class="sidenav-second-level collapse" id="OpcoesDic">
+                          <li>
+                            <a href="/aera_interna/obras/dicionario/criar">Cadastrar</a>
+                          </li>
+                          <li>
+                            <a href="/aera_interna/obras/dicionario/alterar">Alterar</a>
+                          </li>
+                          <li>
+                            <a href="/aera_interna/obras/dicionario/excluir">Excluir</a>
+                          </li>
+                      </ul>
+                </li>
+                <li>
+                  <a href="/area_interna/obras/lista">Lista por Categoria</a>
+                </li>
+                <li>
+                <a href="/area_interna/obras/pesquisar">Pesquisar</a>
+                </li>
+           </ul>
+        </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Passageiros">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#OpcoesPassageiros" data-parent="#exampleAccordion">
+            <span class="nav-link-text">Categoria</span>
+          </a>
+
+          <ul class="sidenav-second-level collapse" id="OpcoesPassageiros">
+            <li>
+              <a href="/area_interna/categoria/cadastrar">Cadastrar</a>
+            </li>
+            <li>
+              <a href="/area_interna/categoria/alterar">Alterar</a>
+            </li>
+            <li>
+                <a href="/area_interna/categoria/excluir">Excluir</a>
+              </li>
+          </ul>
+        </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Usuario">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#OpcoesUsuario" data-parent="#exampleAccordion">
+            <span class="nav-link-text">Usuario</span>
+          </a>
+
+          <ul class="sidenav-second-level collapse" id="OpcoesUsuario">
+            <li>
+              <a href="/area_interna/usuario/cadastrar">Cadastrar</a>
+            </li>
+            <li>
+              <a href="/area_interna/usuario/alterar">Alterar</a>
+            </li>
+            <li>
+                <a href="/area_interna/usuario/excluir">Excluir</a>
+              </li>
+          </ul>
+        </li>
+
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="AeroPorto">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#OpcoesAeroportos">
+            <span class="nav-link-text">Emprestar/Devolver</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="OpcoesAeroportos">
+              <li>
+                <a href="/area_interna/emprestar/buscar">Emprestar Livro</a>
+              </li>
+              <li>
+                <a href="/area_interna/devolver/buscar">Devolver livro</a>
+              </li>
+        </li>
+        
+     
+      </ul>
+      
+
+
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      
+    </div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Sair</a>
+        </li>
+      </ul>
+    
+  </nav>
+
+  <div class="content-wrapper">
+      {%block conteudo%}
+
+      {%endblock%}
+     
+      
+    </div>
+    
+  
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © JEDMI Library 2018</small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Deseja sair?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Selecione "Sair" abaixo se você estiver pronto para terminar sua sessão atual.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" href="login.html">Sair</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% static "vendor/jquery/jquery.min.js" %}" ></script>
+    <script src="{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="{% static "vendor/jquery-easing/jquery.easing.min.js"  %}"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="{% static "vendor/chart.js/Chart.min.js"  %}"></script>
+    <script src="{% static "vendor/datatables/jquery.dataTables.js"  %}"></script>
+    <script src="{% static "vendor/datatables/dataTables.bootstrap4.js"  %}"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="{% static "js/sb-admin.min.js"  %}"></script>
+    <!-- Custom scripts for this page-->
+    <script src="{% static "js/sb-admin-datatables.min.js"  %}"></script>
+    <script src="{% static "js/sb-admin-charts.min.js"  %}"></script>
+  </div>
+</body>
+
+</html>

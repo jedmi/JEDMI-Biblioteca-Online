@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    
+    <div class="container-fluid">
+    <div class="row">
+      
+
+        
+          
+      <div class="col-xl-12 col-sm-6 mb-3">  
+        <div class="card text-white bg-success o-hidden h-100 ">      
+          <div class="card-body ">
+            <form class="form-autenticar"  action="/area_interna/devolver/finalizar" method="POST">
+            {% csrf_token %}
+            <label>Selecione a obra:</label>
+            <select  name="devolver_selecao" value="OK" style="width: 500px; height: 50px" required >
+                {% for al in obra %}
+                <option value={{al.id}}> {{al.titulo}}</option>        
+                {% endfor %} 
+            </select>
+            <br/><br/>
+            <label>Selecione o Usuario:</label>
+            <select  name="usuario_selecao" value="OK" style="width: 500px; height: 50px" required >
+                {% for al in usuario %}
+                <option value={{al.id}}> {{al.nome_usuario}}</option>        
+                {% endfor %} 
+            </select>
+              <br/><br/>
+                <button class="btn btn-xs btn-warning " type="submit" >Devolver</button>  
+           </form>     
+          </div>
+        </div>
+      </div>    
+    
+
+      
+{% endblock %}

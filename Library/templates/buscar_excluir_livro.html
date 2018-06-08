@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    
+    <div class="container-fluid">
+    <div class="row">
+      
+
+        
+          
+      <div class="col-xl-12 col-sm-6 mb-3">  
+        <div class="card text-white bg-info o-hidden h-100 ">      
+          <div class="card-body ">
+            <form class="form-autenticar"  action="/area_interna/livro/finalizar_excluir" method="POST">
+            {% csrf_token %}
+                <select  name="livro_selecao" value="OK" style="width: 500px; height: 40px" required >
+                    {% for al in livro %}
+                    <option value={{al.id}}>{{ al.titulo}}</option>        
+                    {% endfor %} 
+                </select>         
+                <button class="btn btn-xs btn-warning " type="submit" >Excluir</button>  
+           </form>     
+          </div>
+        </div>
+      </div>    
+    
+
+      
+{% endblock %}

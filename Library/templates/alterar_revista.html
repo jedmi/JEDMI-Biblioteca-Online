@@ -1,0 +1,68 @@
+{% extends 'buscar_revista.html' %}
+{% block revista %}
+
+<div class="card text-white bg-info o-hidden h-100 ">
+          
+        <div class="card-body ">
+          <form class="form-autenticar"  action="/aera_interna/obras/revista/salvar" method="POST">
+            {% csrf_token %}
+  
+              <h2>Dados do Livro</h2>
+              <br/>
+              <label>Titulo:</label><br/>
+              <input value={{selecao.titulo}} style="width: 700px; height: 50px" type="text" class="text" name="titulo" required/>
+              <br/><br/>
+              <label>Edição:</label><br/>
+              <input value={{selecao.edicao}} style="width: 700px; height: 50px"  type="text" class="text" name="edicao" required/>
+              <br/><br/>
+              <label>Numero do Exemplar:</label><br/>
+              <input value={{selecao.numeroexemplar}} style="width: 700px; height: 50px" type="number" class="text" name="numero_exemplar" required />
+              <br/><br/>
+              <label>Ano de Edição:</label><br/>
+              <input  value={{selecao.ano}} style="width: 700px; height: 50px" type="date" class="text" name="ano_edicao" required/>
+              <br/><br/>
+              <label>ISSN:</label><br/>
+              <input  value={{selecao.issn}} style="width: 700px; height: 50px" type="issn" class="text" name="issn" required/>
+              <br/><br/>
+              <label>Categoria:</label><br/>
+              <select  name="categoria" value="OK" style="width: 700px; height: 50px" required >
+                      {% for al in allcategoria %}
+                      <option value={{al.id}}> {{al.nome_categoria}}</option>        
+                      {% endfor %}        
+              </select>
+              <br/><br/>
+              <label>Observação:</label><br/>
+              <input value={{selecao.observacao}} style="width: 700px; height: 50px"   type="textarea" class="text" name="observacao" required/>
+              <br/><br/>
+              <label>Data de Cadastro:</label><br/>
+              <input value={{selecao.datacadastro}} style="width: 700px; height: 50px" type="date" class="text" name="data" required/>
+              <br/><br/>
+              <label>Status do Livro:</label><br/>
+              <select  name="status" value="OK" style="width: 700px; height: 50px" required >
+                      <option value='Disponivel'>Disponivel</option>        
+                      <option value='Emprestado'>Emprestado</option>  
+              </select>
+              <br/><br/>
+              <label>Nome da Editora:</label><br/>
+              <input value={{selecao.editora.nome_editora}} style="width: 700px; height: 50px" type="text" class="text" name="editora" required/>
+              <br/><br/>
+              <label>Telefone da Editora:</label><br/>
+              <input value={{selecao.editora.telefone}} style="width: 700px; height: 50px"  type="text" class="text" name="telefone" required/>
+              <br/><br/>
+              <label>Email da Editora:</label><br/>
+              <input value={{selecao.editora.email}} style="width: 700px; height: 50px" type="text" class="text" name="email" required />
+              <br/><br/>
+
+            <button class="btn btn-lg btn-warning btn-block" type="submit">SALVAR</button>
+          </form>
+          <div class="card-body-icon col-md-1">
+              <i class="fa fa-fw fa-list"></i> 
+          </div>
+        
+      </div>
+    </div>
+
+        
+     
+      
+{% endblock %}
