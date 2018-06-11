@@ -10,14 +10,14 @@
       <div class="col-xl-12 col-sm-6 mb-3">  
         <div class="card text-white bg-info o-hidden h-100 ">      
           <div class="card-body ">
-            <form class="form-autenticar"  action="/area_interna/livro/finalizar_excluir" method="POST">
+            <form class="form-autenticar"  action="/area_interna/usuario/finalizar_excluir" method="POST">
             {% csrf_token %}
-                <select  name="livro_selecao" value="OK" style="width: 700px; height: 50px" required >
-                    {% for al in livro %}
-                    <option value={{al.id}}>{{ al.titulo}}</option>        
+                <select  name="usuario_selecao" value="OK" style="width: 700px; height: 50px" required >
+                    {% for al in usuario %}
+                    <option value={{al.id}}>{{ al.nome_usuario}}</option>        
                     {% endfor %} 
                 </select>
-              </br></br>         
+              </br></br>        
                 <button class="btn btn-xs btn-warning " type="submit" >Excluir</button>  
            </form>     
           </div>

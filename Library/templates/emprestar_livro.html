@@ -8,7 +8,7 @@
         
           
       <div class="col-xl-12 col-sm-6 mb-3">  
-        <div class="card text-white bg-secondary o-hidden h-100 ">      
+        <div class="card text-white bg-info o-hidden h-100 ">      
           <div class="card-body ">
             <form class="form-autenticar"  action="/area_interna/emprestar/cadastrar" method="POST">
             {% csrf_token %}
@@ -34,10 +34,7 @@
                     <option value=10dias>10 Dias</option>        
                     
                 </select>
-                <br/><br/>
-                <label>Data do emprestimo:</label>
-                <input  type="date" class="text" name='data_emprestimo'required/>
-                <br/><br/>      
+                <br/><br/>     
                 <button class="btn btn-xs btn-warning "  type="submit" >SALVAR</button>  
            </form>     
           </div>

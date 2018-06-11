@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('autenticar/', do_login, name='autenticar'),
     path('area_interna/', area_interna, name='area_interna'),
+    path('area_interna/logout/', do_logout, name='do_logout'),
     #---------------Obras-------------------------------------------------
     path('aera_interna/obras/livros/criar', criar_livros, name='criar_livros'),
     path('aera_interna/obras/livros/salvar', salvar_livros, name='salvar_livros'),
@@ -56,12 +57,15 @@ urlpatterns = [
     path('area_interna/categoria/buscar',categoria_buscar,name='categoria_buscar'),
     path('area_interna/categoria/excluir', categoria_excluir, name='categoria_excluir'),
     path('area_interna/categoria/finalizar_excluir',categoria_finalizarexcluxao, name='categoria_finalizar_excluir'),
+    path('area_interna/categoria/lista', categoria_lista, name='categoria_lista'),
     #--------------------------EMPRESTAR LIVRO---------------------------------------------
     path('area_interna/emprestar/buscar', emprestar_buscar, name='emprestar_buscar'),
     path('area_interna/emprestar/cadastrar',emprestar_cadastrar,name='emprestar_cadastrar'),
     #--------------------------Devolver LIVRO---------------------------------------------
     path('area_interna/devolver/buscar',devolver_buscar,name='devolver_excluir'),
     path('area_interna/devolver/finalizar',devolver_finalizar,name='devolver_finalizar'),
+    #--------------------------Devolver/Emprestar LIVRO---------------------------------------------
+    path('area_interna/devolver_emprestar/lista',lista_devolver_emprestar,name='lista_devolver_emprestar'),
     #----------mensagem---------------------------------------------------------------------
     path('menssagem/', menssagem_conclucao, name='area_interna'),
     #---------------------usuario----------------------------------------------------------------
@@ -69,6 +73,9 @@ urlpatterns = [
     path('area_interna/usuario/salvar',usuario_salvar,name='usuario_salvar'),
     path('area_interna/usuario/alterar',usuario_alterar,name='usuario_alterar'),
     path('area_interna/usuario/buscar',usuario_buscar,name='usuario_buscar'),
+    path('area_interna/usuario/lista',usuario_lista,name='usuario_lista'),
+    path('area_interna/usuario/excluir',usuario_excluir,name='usuario_excluir'),
+    path('area_interna/usuario/finalizar_excluir',dicionario_finalizarexcluxao_usuario, name='categoria_finalizar_excluir'),
     #--------------pesquisar-------------------------------------------------------------
     path('area_interna/obras/pesquisar',pesquisar_obra,name='pesquisar_obra'),
     path('area_interna/obra/pesquisar/resultado',pesquisar_resultado,name='pesquisar_resultado'),

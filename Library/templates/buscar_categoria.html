@@ -12,11 +12,12 @@
           <div class="card-body ">
             <form class="form-autenticar"  action="/area_interna/categoria/buscar" method="POST">
             {% csrf_token %}
-                <select  name="categoria_selecao" value="OK" style="width: 500px; height: 40px">
+                <select  name="categoria_selecao" value="OK" style="width: 700px; height: 50px">
                     {% for al in categoria %}
                     <option value={{al.id}}>{{ al.nome_categoria}}   Codico Unico: {{al.id}}</option>        
                     {% endfor %} 
-                </select>         
+                </select>  
+              </br></br>
                 <button class="btn btn-xs btn-warning " type="submit" >EDITAR</button>  
            </form>     
           </div>

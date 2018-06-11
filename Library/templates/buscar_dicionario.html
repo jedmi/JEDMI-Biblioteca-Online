@@ -12,11 +12,12 @@
           <div class="card-body ">
             <form class="form-autenticar"  action="/area_interna/dicionario/buscar" method="POST">
             {% csrf_token %}
-                <select  name="dicionario_selecao" value="OK" style="width: 500px; height: 40px" required >
+                <select  name="dicionario_selecao" value="OK" style="width: 700px; height: 50px" required >
                     {% for al in dicionario %}
                     <option value={{al.id}}>{{ al.titulo}}</option>        
                     {% endfor %} 
-                </select>         
+                </select>  
+                </br></br>       
                 <button class="btn btn-xs btn-warning " type="submit" >EDITAR</button>  
            </form>     
           </div>

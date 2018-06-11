@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from Library.models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 
 
 # Create your views here.
@@ -22,6 +23,9 @@ def do_login(request):
             return redirect('/area_interna')
     
     return render(request, 'login.html')   
+
+def do_logout(request):
+    return render(request, 'login.html') 
 
 @login_required
 def area_interna(request):
@@ -74,7 +78,7 @@ def salvar_livros(request):
     livro.numeroexemplar = request.POST.get('numero_exemplar')
     livro.ano = request.POST.get('ano_edicao')
     livro.observacao = request.POST.get('observacao')
-    livro.datacadastro = request.POST.get('data')
+    livro.datacadastro =timezone.now()
     livro.status ="Disponivel"
     livro.volume = request.POST.get('volume')
     livro.isbn = request.POST.get('isbn')
@@ -138,7 +142,7 @@ def salvar_revista (request):
     revista.numeroexemplar = request.POST.get('numero_exemplar')
     revista.ano = request.POST.get('ano_edicao')
     revista.observacao = request.POST.get('observacao')
-    revista.datacadastro = request.POST.get('data')
+    revista.datacadastro = timezone.now()
     revista.status = request.POST.get('status')
     revista.issn = request.POST.get('issn')
 
@@ -202,7 +206,7 @@ def salvar_dicionario (request):
     dicionario.numeroexemplar = request.POST.get('numeroexemplar')
     dicionario.ano = request.POST.get('ano_edicao')
     dicionario.observacao = request.POST.get('observacao')
-    dicionario.datacadastro = request.POST.get('data')
+    dicionario.datacadastro =timezone.now()
     dicionario.status = request.POST.get('status')
     dicionario.nome_indioma = request.POST.get('idioma')
 
@@ -257,7 +261,7 @@ def categoria_salvar (request):
 
     categoriaDig=request.POST.get('nome_categoria')
     categoria.nome_categoria=categoriaDig
-    dataCadastrada=request.POST.get('data_cadastro')
+    dataCadastrada=timezone.now()
     categoria.data_cadastro=dataCadastrada
     categoria.save()
     return redirect('/menssagem/')
@@ -283,6 +287,10 @@ def categoria_finalizarexcluxao (request):
     cat.delete()
     mensagem="Categoria excluida com Sucesso!!"
     return redirect('/menssagem/')
+
+def categoria_lista (request):
+    lista_categoria=Categoria.objects.all()
+    return render(request, 'lista_todas_categoria.html', context={'categoria':lista_categoria})
 
 #------------Lista por categoria----------------------------------------------------------------
 
@@ -318,8 +326,7 @@ def emprestar_cadastrar(request):
         diaemprestimo=request.POST.get('dias_selecao')
         emprestimo.tempo_emprestimo=diaemprestimo
 
-        dataCadastrada=request.POST.get('data_emprestimo')
-        emprestimo.data_emprestimo=dataCadastrada
+        emprestimo.data_emprestimo=timezone.now()
 
         obraslc=request.POST.get('obra_selecao')
         ob=Obra.objects.get(id=obraslc)
@@ -357,6 +364,12 @@ def devolver_finalizar(request):
     else:
         mensagem="USUARIO NÃO ESTA COM ESTA OBRA"
         return redirect('/menssagem/')
+
+#------------------LISTA EMPRESTAR DEVOLVER LIVRO---------------------------
+def lista_devolver_emprestar(request):
+    lista_emprestado=Obra.objects.filter(status="Emprestado")
+    lista_disponivel=Obra.objects.filter(status="Disponivel")
+    return render(request, 'lista_todas_obras.html', context={'emprestado':lista_emprestado,'disponivel':lista_disponivel})
 
 
 #-----------------------USUARIO-----------------------------------------------
@@ -404,10 +417,22 @@ def usuario_buscar (request):
     return render(request, 'alterar_usuario.html', context={'selecao':usuario})
 
 
+def usuario_lista (request):
+    lista_usuario=Usuario.objects.all()
+    return render(request, 'buscar_todos_usuario.html', context={'usuario':lista_usuario})
+
+def usuario_excluir (request):
+    lista_usuario=Usuario.objects.all()
+    return render(request, 'buscar_excluir_usuario.html', context={'usuario':lista_usuario})
 
 
-
-
+def dicionario_finalizarexcluxao_usuario (request):
+    global mensagem
+    usuarioslc=request.POST.get('usuario_selecao')
+    us=Usuario.objects.get(id=usuarioslc)
+    us.delete()
+    mensagem="usuario exluida com  Sucesso!!"
+    return redirect('/menssagem/')
 
 
 

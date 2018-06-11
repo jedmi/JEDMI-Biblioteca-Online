@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-12 col-sm-6 mb-3">  
+            <div class="card text-white bg-info o-hidden h-100 ">
+              
+              <div class="card-body ">
+                    {% for al in categoria %}   
+                            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#Relatorio{{al.id}}">
+                            <span class="nav-link-text"><h4>{{al.nome_categoria}}</h4></span>
+                          </a>
+                          <ul class="sidenav-second-level collapse" id="Relatorio{{al.id}}">
+                              <li>
+                                <h6>Data de Cadastro: {{al.data_cadastro}} </h6> 
+                              </li>
+                            </ul>
+                          
+                    {% endfor %} 
+    
+                <div class="card-body-icon col-md-1">
+                    <i class="fa fa-fw fa-list"></i> 
+                </div>
+              
+            </div>
+            </div>
+          </div>
+        </div>
+
+
+{% endblock %}
